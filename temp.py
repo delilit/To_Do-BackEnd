@@ -220,5 +220,5 @@ with ydb.QuerySessionPool(driver) as pool:
     result = pool.execute_with_retries('SELECT "Hello, world!"u;')
     print(result[0].rows)
     print(get_tasks_by_user(pool,"122"))
-    #initializate_tables(pool)
+    initializate_tables(pool)
     pass  # operations with pool here

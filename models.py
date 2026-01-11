@@ -18,3 +18,16 @@ class TaskResponse(BaseModel):
     title: str
     description: str
     status: str
+
+class UserCreate(BaseModel):
+    username: str
+    password: str
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+class UserResponse(BaseModel):
+    id: str
+    username: str
+
