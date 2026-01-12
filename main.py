@@ -1,5 +1,3 @@
-from fastapi import FastAPI, HTTPException, Depends, Header
-
 from db import pool
 from models import (
     UserCreate,
@@ -23,13 +21,20 @@ from repository import (
     get_user_by_username,
 )
 
-app = FastAPI()
-
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Depends, Header
+from fastapi.middleware.cors import CORSMiddleware
 from db import pool
 from repository import initialize_tables  # твоя функция
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 def startup_event():
